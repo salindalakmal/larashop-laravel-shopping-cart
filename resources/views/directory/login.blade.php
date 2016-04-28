@@ -7,12 +7,12 @@
                     <div class="col-sm-4 col-sm-offset-1">
                         <div class="login-form"><!--login form-->
                             <h2>Login to your account</h2>
-                            <form method="POST" action="{{url('login')}}">
+                            <form method="POST" action="{{url('auth/login')}}">
                                 {!! csrf_field() !!}
-                                <input type="text" placeholder="Name" />
-                                <input type="email" placeholder="Email Address" />
+                                <input type="email" name="email" id="email" placeholder="Email Address" />
+                                <input type="password" name="password" id="password" placeholder="Password" />
                                 <span>
-                                    <input type="checkbox" class="checkbox"> 
+                                    <input name="remember" id="remember" type="checkbox" class="checkbox"> 
                                     Keep me signed in
                                 </span>
                                 <button type="submit" class="btn btn-default">Login</button>
@@ -27,9 +27,9 @@
                             <h2>New User Signup!</h2>
                             <form method="POST" action="{{url('register')}}">
                                 {!! csrf_field() !!}
-                                <input type="text" placeholder="Name"/>
-                                <input type="email" placeholder="Email Address"/>
-                                <input type="password" placeholder="Password"/>
+                                <input type="text" name="name" id="name"  placeholder="Name">
+                                <input type="email" name="email" placeholder="Email Address"/>
+                                <input type="password" name="password" placeholder="Password">
                                 <button type="submit" class="btn btn-default">Signup</button>
                             </form>
                         </div><!--/sign up form-->

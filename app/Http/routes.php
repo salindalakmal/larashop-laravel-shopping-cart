@@ -41,13 +41,17 @@ Route::post('/cart', 'Front@cart');
 
 
 // Authentication routes...
-Route::get('/login','Front@login');
-Route::get('/logout','Front@logout');
-Route::post('login', 'Front@login');
-Route::post('logout', 'Front@logout');
+Route::get('login', 'Front@login');
+Route::post('auth/login', 'Front@authenticate');
+Route::get('logout', 'Front@logout');
 
 // Registration routes...
 Route::post('/register', 'Front@register');
+
+Route::get('/checkout', [
+    'middleware' => 'auth',
+    'uses' => 'Front@checkout'
+]);
 
 
 // Route::get('blade', function () { 
