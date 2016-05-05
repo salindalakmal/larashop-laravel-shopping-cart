@@ -28,13 +28,6 @@
                                 <li><i class="fa fa-clock-o"></i> {{date('h:i:s A', strtotime($post->created_at))}}</li>
                                 <li><i class="fa fa-calendar"></i> {{date('d M, Y', strtotime($post->created_at))}}</li>
                             </ul>
-                            <span>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-half-o"></i>
-                            </span>
                         </div>
                         <a href="">
                             <img src="images/blog/{{$post->image}}" alt="">
