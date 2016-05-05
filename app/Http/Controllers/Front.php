@@ -73,7 +73,7 @@ class Front extends Controller {
 
         $data = compact('prev_url', 'next_url', 'tags', 'post', 'title', 'description', 'page', 'brands', 'categories', 'products');
 
-        return view('directory/blog_post', $data);
+        return view('directory/blog_post', array('data' => $data, 'page' => 'blog', 'brands' => $this->brands, 'categories' => $this->categories, 'products' => $this->products));
     }
 
     public function contact_us() {
