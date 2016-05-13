@@ -117,7 +117,7 @@ Route::get('/checkout', [
 
 Route::group(['middleware' => ['web'], 'prefix' => 'admin'], function () {
     //Dashboard Route
-    Route::get('dashboard', function() {
+    Route::get('/', function() {
         return view('admin.dashboard');
     });
 

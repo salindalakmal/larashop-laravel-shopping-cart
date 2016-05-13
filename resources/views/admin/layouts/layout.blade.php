@@ -14,15 +14,15 @@
 
         <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 
-        <link href="{{asset('fonts/css/font-awesome.min.css')}}" rel="stylesheet">
-        <link href="{{asset('css/animate.min.css')}}" rel="stylesheet">
+        <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
+        <link href="{{asset('css/animate.css')}}" rel="stylesheet">
 
         <!-- Custom styling plus plugins -->
-        <link href="{{asset('css/custom.css')}}" rel="stylesheet">
-        <link href="{{asset('css/icheck/flat/green.css')}}" rel="stylesheet">
-        <link href="{{asset('css/datatables/tools/css/dataTables.tableTools.css')}}" rel="stylesheet">
+        <link href="{{asset('dashboard/css/custom.css')}}" rel="stylesheet">
+        <link href="{{asset('dashboard/css/flat/green.css')}}" rel="stylesheet">
+        <!-- <link href="{{asset('dashboard/css/dataTables.tableTools.css')}}" rel="stylesheet"> -->
 
-        <script src="{{asset('js/jquery.min.js')}}"></script>
+        <script src="{{asset('js/jquery.js')}}"></script>
 
         <!--[if lt IE 9]>
             <script src="../assets/js/ie8-responsive-file-warning.js"></script>
@@ -55,7 +55,7 @@
                         <!-- menu prile quick info -->
                         <div class="profile">
                             <div class="profile_pic">
-                                <img src="{{asset('images/rodrick.png')}}" alt="..." class="img-circle profile_img">
+                                <img src="{{asset('images/img.jpg')}}" alt="..." class="img-circle profile_img">
                             </div>
                             <div class="profile_info">
                                 <span>Welcome,</span>
@@ -74,7 +74,7 @@
                                 <ul class="nav side-menu">
                                     <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu" style="display: none">
-                                            <li><a href="{{asset('admin/dashboard')}}">Dashboard</a>
+                                            <li><a href="{{asset('admin')}}">Dashboard</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -136,13 +136,13 @@
                     <div class="nav_menu">
                         <nav class="" role="navigation">
                             <div class="nav toggle">
-                                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                                <a id="menu_toggle"><i class="fa fa-paw" aria-hidden="true"></i></a>
                             </div>
 
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="">
                                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                        <img src="{{asset('images/rodrick.png')}}" alt="">Rodrick Kazembe
+                                        <img src="{{asset('images/img.jpg')}}" alt="">Rodrick Kazembe
                                         <span class=" fa fa-angle-down"></span>
                                     </a>
                                     <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
@@ -258,66 +258,66 @@
         <script src="{{asset('js/bootstrap.min.js')}}"></script>
 
         <!-- chart js -->
-        <script src="{{asset('js/chartjs/chart.min.js')}}"></script>
+        <script src="{{asset('dashboard/js/Chart.min.js')}}"></script>
         <!-- bootstrap progress js -->
-        <script src="{{asset('js/progressbar/bootstrap-progressbar.min.js')}}"></script>
-        <script src="{{asset('js/nicescroll/jquery.nicescroll.min.js')}}"></script>
+        <script src="{{asset('dashboard/js/bootstrap-progressbar.min.js')}}"></script>
+        <!-- <script src="{{asset('js/nicescroll/jquery.nicescroll.min.js')}}"></script> -->
         <!-- icheck -->
-        <script src="{{asset('js/icheck/icheck.min.js')}}"></script>
+        <script src="{{asset('dashboard/js/icheck.min.js')}}"></script>
 
-        <script src="{{asset('js/custom.js')}}"></script>
+        <script src="{{asset('dashboard/js/custom.js')}}"></script>
 
 
         <!-- Datatables -->
-        <script src="{{asset('js/datatables/js/jquery.dataTables.js')}}"></script>
-        <script src="{{asset('js/datatables/tools/js/dataTables.tableTools.js')}}"></script>
+        <script src="{{asset('dashboard/js/jquery.dataTables.js')}}"></script>
+        <!-- <script src="{{asset('dashboard/js/dataTables.tableTools.js')}}"></script> -->
         <script>
-$(document).ready(function () {
-    $('input.tableflat').iCheck({
-        checkboxClass: 'icheckbox_flat-green',
-        radioClass: 'iradio_flat-green'
-    });
-});
+            $(document).ready(function () {
+                $('input.tableflat').iCheck({
+                    checkboxClass: 'icheckbox_flat-green',
+                    radioClass: 'iradio_flat-green'
+                });
+            });
 
-var asInitVals = new Array();
-$(document).ready(function () {
-    var oTable = $('#example').dataTable({
-        "oLanguage": {
-            "sSearch": "Search all columns:"
-        },
-        "aoColumnDefs": [
-            {
-                'bSortable': false,
-                'aTargets': [0]
-            } //disables sorting for column one
-        ],
-        'iDisplayLength': 12,
-        "sPaginationType": "full_numbers",
-        "dom": 'T<"clear">lfrtip',
-        "tableTools": {
-            "sSwfPath": "{{asset('js/Datatables/tools/swf/copy_csv_xls_pdf.swf')}}"
-        }
-    });
-    $("tfoot input").keyup(function () {
-        /* Filter on the column based on the index of this element's parent <th> */
-        oTable.fnFilter(this.value, $("tfoot th").index($(this).parent()));
-    });
-    $("tfoot input").each(function (i) {
-        asInitVals[i] = this.value;
-    });
-    $("tfoot input").focus(function () {
-        if (this.className == "search_init") {
-            this.className = "";
-            this.value = "";
-        }
-    });
-    $("tfoot input").blur(function (i) {
-        if (this.value == "") {
-            this.className = "search_init";
-            this.value = asInitVals[$("tfoot input").index(this)];
-        }
-    });
-});
+            var asInitVals = new Array();
+            $(document).ready(function () {
+                var oTable = $('#example').dataTable({
+                    "oLanguage": {
+                        "sSearch": "Search all columns:"
+                    },
+                    "aoColumnDefs": [
+                        {
+                            'bSortable': false,
+                            'aTargets': [0]
+                        } //disables sorting for column one
+                    ],
+                    'iDisplayLength': 12,
+                    "sPaginationType": "full_numbers",
+                    "dom": 'T<"clear">lfrtip',
+                    "tableTools": {
+                        "sSwfPath": "{{asset('js/Datatables/tools/swf/copy_csv_xls_pdf.swf')}}"
+                    }
+                });
+                $("tfoot input").keyup(function () {
+                    /* Filter on the column based on the index of this element's parent <th> */
+                    oTable.fnFilter(this.value, $("tfoot th").index($(this).parent()));
+                });
+                $("tfoot input").each(function (i) {
+                    asInitVals[i] = this.value;
+                });
+                $("tfoot input").focus(function () {
+                    if (this.className == "search_init") {
+                        this.className = "";
+                        this.value = "";
+                    }
+                });
+                $("tfoot input").blur(function (i) {
+                    if (this.value == "") {
+                        this.className = "search_init";
+                        this.value = asInitVals[$("tfoot input").index(this)];
+                    }
+                });
+            });
         </script>
         <!-- /footer content -->
     </body>
